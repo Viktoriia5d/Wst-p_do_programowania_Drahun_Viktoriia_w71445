@@ -47,6 +47,9 @@ if a == 0:
 else:
     b = float(input("Podaj wspolczynnik b: "))
     c = float(input("Podaj wspolczynnik c: "))
+
+#zadania 12
+
     delta = b**2 - 4*a*c
     print(f"Delta wynosi: {delta}")
 
