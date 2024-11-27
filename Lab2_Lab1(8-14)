@@ -1,36 +1,38 @@
-#zadanie 8
+# Zadania 8
+
+# wiek > 18
+
+wiek = float(input("Ile masz lat?"))
+
+print(wiek)
+if wiek>=18:
+    print("Jesteś pełnoletnim")
+else:
+    print("Nie jesteś pełnoletnim")
+
+# Zadania 9
 
 wiek = int(input("Podaj swój wiek: "))
-if 14 > wiek > 18:
-   print("Jestes nastolatek")        
-elif wiek < 14:
-    print("Jestes dzieckiem") 
-elif wiek >= 18:
-    print("Jestes dorosly")
+if wiek <= 0 or wiek >= 120:
+    print("Podaj wiek")
 else:
-    print("Prosze podac swoj wiek, np. 12,19,40")
+    if wiek<4:
+        cena = 0
+    elif wiek >= 4 and wiek < 18:
+        cena = 10
+    elif wiek > 10:
+        cena = 10
+    elif wiek >= 10:
+        cena = 20
+        student = input("czy jesteś studentem? T/N")
+        if student.lower() == 't':
+            cena = 0.75
+print(f"Twoja cena to {cena}")
 
-#zadanie 9
+#Zadania 10
 
-wiek = int(input("Podaj swój wiek: "))
-if wiek >= 18:
-    student = input("Czy jesteś studentem? (tak/nie): ")
-else:
-    student = "nie"        
-if wiek < 4:
-    cena = 0
-elif 4 <= wiek < 18:
-    cena = 10
-elif wiek >= 18 and student == "tak":
-    cena = 20 * 0.75
-elif wiek >= 18:
-    cena = 20 
-cena = print(f"Cena twojego biletu to: {cena} zł")
-
-
-#zadanie 10
-
-x=int(input("podaj 1 liczbe"))y=int(input("podaj 2 liczbe"))
+x=int(input("podaj 1 liczbe"))
+y=int(input("podaj 2 liczbe"))
 z=int(input("podaj 3 liczbe"))
 if x > y:    x, y = y, x
 if y > z:    y, z = z, y
@@ -38,7 +40,7 @@ if x > y:    x, y = y, x
 
 print(x, y, z)
 
-#zadanie 11
+#Zadanie 11
 
 print("Rownanie kwadratowe ma postac: ax^2 + bx + c = 0")
 a = float(input("Podaj wspolczynnik a (a ≠ 0): "))
@@ -48,42 +50,45 @@ else:
     b = float(input("Podaj wspolczynnik b: "))
     c = float(input("Podaj wspolczynnik c: "))
 
-#zadania 12
+#Zadanie 12
 
-    delta = b**2 - 4*a*c
-    print(f"Delta wynosi: {delta}")
-
-    if delta > 0:
-        x1 = (-b - pierw.delty) / (2 * a)
-        x2 = (-b + pierw.delty) / (2 * a)
-        print(f"Rownanie ma dwa pierwiastki rzeczywiste: x1 = {x1}, x2 = {x2}")
-    elif delta == 0:
-        x0 = -b / (2 * a)
-        print(f"Rownanie ma jeden pierwiastek rzeczywisty: x0 = {x0}")
-    else:
-        print("Rownanie nie ma pierwiastkow rzeczywistych.")
-
-#zadanie 13
-
-#robilem to kiedys, dlatego jest po angielsku
-
-what = input ("Which one? (+, -): ")
-
-a = float( input( "First number please: "))
-b = float( input( "Second number please: "))
-
-if what == "+":
-        c = a + b
-        print("answer: " + str(c))
-
-elif what == "-":
-        c = a - b
-        print("answer: " + str(c))
-
+a = int(input("Podaj A:"))
+if a>=0:
+    print(f"2 * a = {2*a}")
+elif a==0:
+    print(0)
 else:
-        print("unknown symbol :(")
+    print(f"-3*a = {-3*a}")
+b= int(input("Podaj b:"))
+if b>=1:
+    print(f"b*b = {b*b}")
+elif b<0:
+    print(f"b = {b}")
+c=int(input("Podaj c:"))
+if c>2:
+    print(f"2+c = {2+c}")
+elif c==2:
+    print("8")
+else:
+    print(f"c-4 = {c-4}")
 
-#zadanie 14
+#Zadanie 13
+
+a=int(input("podaj liczbę a:"))
+b=int(input("podaj liczbę b:"))
+D=int(input("wybierz opcje:\n1.+\n2.-\n3.*\n4./"))
+if D == 1:
+    print(a+b)
+elif D == 2:
+    print(a-b)
+elif D == 3:
+    print(a*b)
+elif D == 4:
+    print(a/b)
+else:
+    print("wybierz 1 lub 2 lub 3 lub 4")
+
+#Zadanie 14
 
 
 excel = (".xls", ".xlsx", ".xlsm")
@@ -94,250 +99,274 @@ if file.endswith(excel):
 else:
     print(f"{file} nie jest plikiem arkusza Excel.")
 
-
-
 #Zadanie 15
 
-a = float(input("Podaj pierwszą liczbę: "))
-b = float(input("Podaj drugą liczbę: "))
+a = float(input("Podaj współczynnik a: "))
+b = float(input("Podaj współczynnik b: "))
 
 if a == 0:
-        if b == 0:
-                print("Równanie ma nieskończenie wiele rozwiązań.")
-        else:
-                print("Równanie nie ma rozwiązania.")
+    if b == 0:
+        print("Równanie ma nieskończenie wiele rozwiązań.")
+    else:
+        print("Równanie nie ma rozwiązań.")
 else:
-        x = -b / a
-        print(f"Rozwiązanie równania to: x = {x}")
-
-#Zadanie 16
-
-import math
-
-
-a = int(input("Podaj długosc pierwszego boku: "))
-b = int(input("Podaj długosc drugiego boku: "))
-c = int(input("Podaj długosc trzeciego boku: "))
-
-obw = 2 * a + 2 * b + 2 * c
-
-print(f"Oto jest obwód prostokątą: {obw}")
-
-p = (a + b + c)/2
-pole = sqrt = math.sqrt(p*(p - a)*(p - b)*(p - c))
-
-
-#nie wiem czy potrzebna jest liczba całkowita, dlatego nic nie zmienialem poniżej
-print("Oto jest pole prostokątą: " + str(pole))
+    x = -b / a
+    print(f"Rozwiązanie równania: x = {x}")
 
 
 
-#Zadanie 17
-
-letter = input("Wprowadź jedną literę: ")
-
-if len(letter) == 1 and letter.isalpha():
-        asci = ord(letter)
-if 65 <= asci <= 90:
-                print("Wprowadzana litera jest dużą literą")
-elif 97 <= asci <= 122:
-                print("Wprowadzona litera jest małą literą")
-else:
-        print("Wprowadzono błąd")
-
-#Zadanie 19
-
-def con(char):
-        asci = ord(char)
-        if 'A' <= char <= 'Z':
-                return chr(asci + 32)
-        elif 'a' <= char <= 'z':
-                return chr(asci - 32)
-        else:
-                return char
-literka = input("Proszę o podanie litery: ")
-if len(literka) == 1:
-        print("Proszę bardzo:", con(literka))
-else:
-        print("Wprowadź tylko jedną literę.")
-
- #Zadanie 20
-
- def obl_wynik(gol, bonus):
-        wynik = gol * 10
-        if gol > 5:
-                wynik += 5
-        elif gol > 10:
-                wynik += 10
-        wynik += bonus
-
-        return wynik
-try:
-        gol = int(input("Wprowadź liczbę bramek zdobytych przez drużynę: "))
-        bonus = int(input("Wprowadź liczbę bonusów zdobytych przez drużynę: "))
-
-        wyn_druzyny = obl_wynik(gol, bonus)
-print("Łączny wynik drużyny:", wyn_druzyny)
-
-except ValueError:
-        print("Proszę wprowadzić poprawne liczby całkowite.")
-
-
-
-#Lab 2
+#lab 2
 
 
 
 
-#zadanie 1
+# Zadania 1
 
-for i in range (1,101):    
-    print(i)
-for i in range(100, -1,  -1):    
-    print(i)
-for i in range(7, 78, 7):    
-    print(i)
-for i in range(20, -2, -2):
+"""
+
+a) 1, 2, 3, ... , 99, 100
+b) 100, 99, ... , 2, 1, 0
+c) 7, 14, 21, ... , 70, 77
+d) 20, 18, ... , 2, 0
+
+"""
+
+#a
+#for i in range(1,101):
+ #   print(i)
+
+#b
+#for i in range(100, -1, -1):
+ #    print (i)
+
+#c
+#for i in range(7, 78, 7):
+#    print(i)
+
+#d
+for i in range(20, -1, -2):
     print(i)
 
-#zadanie 2
+# Zadania 2
 
-a)
-liczbaG =int(input("ile gwiazdek: "))
+#a
+
+
+liczbaG=int(input("Ile gwiazdek?"))
 print(liczbaG)
+
+"""
 for j in range(liczbaG):
     for i in range(liczbaG):
-        print("*", end = " ")
+        print("*", end=" ")
     print("")
-liczbaG =int(input("ile gwiazdek: "))
-b)
-liczbaG =int(input("ile gwiazdek: "))
+
+"""
+
+#b
+
+"""
+
 for j in range(liczbaG):
-    for i in range(j + 1 ):
-        print("* ", end = " ")
+    for i in range(j+1):
+        print("*", end=" ")
     print("")
-c)
-liczbaG =int(input("ile gwiazdek: "))
+
+"""
+
+#c
+
 for j in range(liczbaG):
-    print((liczbaG - 1 - j) * " ", end = "")
-    for i in range(j + 1 ):
-        print("*", end = " ")
+    print((liczbaG-1-j) * " ", end=" ")
+    for i in range(j+1):
+        print("*", end=" ")
     print("")
 
-#zadanie 3
-
-n = int(input("Podaj liczbe naturalna n (ilosc elementow ciagu): "))
-if n <= 0:
-    print("Liczba n musi byc liczba naturalna wieksza od zera.")
-else:
-    a = float(input("Podaj pierwszy wyraz ciagu (a): "))
-    r = float(input("Podaj roznice ciagu (r): "))
-
-    print(f"{n} elementów ciągu arytmetycznego:")
-    for i in range(n):
-        element = a + i * r
-        print(f"a({i + 1}) = {element}")
-
-#zadanie 4
+# Zadanie 3
 
 n = int(input("Podaj liczbę naturalną n: "))
+a = float(input("Podaj pierwszy element ciągu (a): "))
+r = float(input("Podaj różnicę ciągu (r): "))
+
+for i in range(n):
+    an = a + i * r
+    print(f"Element {i + 1}: {an}")
+
+# Zadanie 4
+
+n = int(input("Podaj liczbę naturalną n: "))
+
 if n < 0:
-    print("Silnia jest zdefiniowana tylko dla liczb naturalnych.")
+    print("Silnia jest zdefiniowana tylko dla liczb naturalnych (0 lub większych).")
 else:
     silnia = 1
     for i in range(1, n + 1):
         silnia *= i
+    print(f"Silnia liczby {n} wynosi: {silnia}")
 
-    print(f"Silnia liczby {n} wynosi {silnia}.")
+# Zadanie 5
 
-#zadanie 6
+tekst = ("Rzeszów jest piękny")
+
+# a) Pierwsza litera
+pierwsza_litera = tekst[0]
+print("Pierwsza litera:", pierwsza_litera)
+
+# b) Siódma, dziesiąta, trzynasta oraz druga litera
+siodma_litera = tekst[6]  # Indeksy zaczynają się od 0
+dziesiata_litera = tekst[8]
+trzynasta_litera = tekst[11]
+druga_litera = tekst[1]
+
+print("Siódma litera:", siodma_litera)
+print("Dziesiąta litera:", dziesiata_litera)
+print("Trzynasta litera:", trzynasta_litera)
+print("Druga litera:", druga_litera)
+
+# Zadania 6
 
 tresc = "Python jest super"
-print(tresc[0])     
-print(tresc[-1])      
-print(tresc[::2])    
-print(tresc[1::3])   
-print(tresc[10::-1])  
-print(tresc[::-1])
-print(tresc[6], tresc[9], tresc[12], tresc[1])
 
-#zadanie 7
+#a
+print(tresc[0])
 
-imie = input("Podaj swoje imie: ")
+#b
+print(tresc[16])
+
+#c
+print(tresc[0:17:])
+
+#d
+print(tresc[1: :3])
+
+#e
+print(tresc[10: :-1])
+
+#f
+print(tresc[ : :-1])
+
+# Zadania 7
+
+#a
+imie = input("Podaj swoje imię: ")
 print("Witaj", imie)
 
-wiek = int(input("Podaj swoj wiek: "))
-print(f"Twoj wiek to: {wiek}")
+#b
+wiek = input("Podaj swój wiek: ")
+print("Twój wiek to:", wiek)
 
+#c
 imie = input("Podaj swoje imię: ")
 nazwisko = input("Podaj swoje nazwisko: ")
-print("inicjaly: " + imie[0] + "." + nazwisko[0] + ".")
 
-lancuch = input("Podaj lancuch: ")
+# Wyznaczanie inicjałów
+inicjaly = imie[0].upper() + nazwisko[0].upper()
+
+print("Twoje inicjały to:", inicjaly)
+
+#d
+lancuch = input("Podaj jakiś łańcuch znaków: ")
+print("Łańcuch powtórzony pięć razy:")
 print(lancuch * 5)
 
+#e
 lancuch1 = input("Podaj pierwszy łańcuch: ")
 lancuch2 = input("Podaj drugi łańcuch: ")
-lancuch_p = lancuch1 + lancuch2
-print("Połączony łańcuch:", lancuch_p)
 
+# Połączenie łańcuchów
+polaczony_lancuch = lancuch1 + lancuch2
 
-lancuch_1 = input("Podaj pierwszy łańcuch: ")
-lancuch_2 = input("Podaj drugi łańcuch: ")
+print("Połączony łańcuch:", polaczony_lancuch)
 
-polowa1 = lancuch_1[:len(lancuch_1) // 2]
-polowa2 = lancuch_2[len(lancuch_2) // 2:]
+#f
+lancuch1 = input("Podaj pierwszy łańcuch: ")
+lancuch2 = input("Podaj drugi łańcuch: ")
 
-lancuch_p2 = polowa1 + polowa2
-print("Połączona połowa:", lancuch_p2
+# Wyznaczanie połówek
+polowa1 = lancuch1[:len(lancuch1) // 2]  # Pierwsza połowa pierwszego łańcucha
+polowa2 = lancuch2[len(lancuch2) // 2:]  # Druga połowa drugiego łańcucha
 
-#zadanie 8
+# Tworzenie trzeciego łańcucha
+trzeci_lancuch = polowa1 + polowa2
 
-# x =<-4, 4>
+print("Trzeci łańcuch:", trzeci_lancuch)
+
+# Zadania 8
+
+#x=<-4,4>
 x=-4
-while x <= 4:
-    y = 2 * x * x − 5 * x − 8
-    print(f"dla argumentow x = {x} wartosc funkcji wynosi {y}")
-    x+=0.5
-else:    print("else: dzialanie petli sie zakonczylo")
 
-#zadanie 9
+
+while x<= 4:
+    y = 2 * x * x - 5 * x - 8 #Wartość funkcji
+    print(f"Dla argumentu x= {x} wartość funkcji wynosi {y}")
+    x=x+0.5
+
+else:
+    print("Else: Dzałanie pętli się zakończło")
+
+# Zadania 9
 
 while True:
-    a = int(input("podaj liczbe calkowita: "))
-    print(a)
-    if a < 0:
-        break
+    liczba = int(input("Podaj liczbę całkowitą: "))
+
+    if liczba < 0:
+        print("Podano liczbę ujemną. Kończę działanie.")
+        break  # Wyjście z pętli, gdy liczba jest ujemna
+
+    print(f"Podano liczbę: {liczba}")
+
+# Zadania 10
+
+# Pobranie dwóch liczb od użytkownika
+liczba1 = int(input("Podaj pierwszą liczbę całkowitą: "))
+liczba2 = int(input("Podaj drugą liczbę całkowitą: "))
+
+# Ustalenie mniejszej i większej liczby
+mniejsza = min(liczba1, liczba2)
+wieksza = max(liczba1, liczba2)
+
+# Wypisanie kolejnych liczb od mniejszej do większej
+print(f"Liczby od {mniejsza} do {wieksza}:")
+for liczba in range(mniejsza, wieksza + 1):
+    print(liczba)
+
+Zadania 11
+
+# Pobranie dwóch liczb od użytkownika
+liczba1 = int(input("Podaj pierwszą liczbę całkowitą: "))
+liczba2 = int(input("Podaj drugą liczbę całkowitą: "))
+
+# Ustalenie mniejszej i większej liczby
+mniejsza = min(liczba1, liczba2)
+wieksza = max(liczba1, liczba2)
+
+# Wypisanie tylko liczb parzystych z zakresu
+print(f"Liczby parzyste od {mniejsza} do {wieksza}:")
+for liczba in range(mniejsza, wieksza + 1):
+    if liczba % 2 != 0:  # Sprawdzenie, czy liczba jest nieparzysta
+        continue  # Pomijamy dalszą część pętli dla nieparzystych liczb
+    print(liczba)  # Wypisujemy tylko parzyste liczby
 
 
-#zadanie 10
+# Zadania 12
 
-a = int(input("Podaj pierwsza liczbe calkowita: "))
-b = int(input("Podaj druga liczbe calkowita: "))
+# Pobranie liczby studentów
+n = int(input("Podaj liczbę studentów w grupie: "))
 
-if a > b:
-    a, b = b, a 
-    for i in range(a, b + 1):
-        print(i)
-elif a < b:
-    b, a = a, b
-    for i in range(b, a + 1):
-        print(i)
+# Inicjalizacja zmiennych
+suma_punktow = 0
+i = 0
 
-#zadanie 11
+# Pobieranie punktów od każdego studenta
+while i < n:
+    punkty = float(input(f"Podaj liczbę punktów dla studenta {i + 1}: "))
+    suma_punktow += punkty
+    i += 1
 
-a = int(input("Podaj pierwsza liczbe calkowita: "))
-b = int(input("Podaj druga liczbe calkowita: "))
-
-if a > b:
-    a, b = b, a 
-    for i in range(a, b + 1):
-        if i % 2 != 0:
-            continue
-        print(i)
-elif a < b:
-    b, a = a, b
-    for i in range(b, a + 1):
-        if i % 2 != 0:
-            continue
-        print(i) 
+# Obliczenie i wyświetlenie średniej
+if n > 0:
+    srednia = suma_punktow / n
+    print(f"Średnia liczba punktów w grupie wynosi: {srednia:.2f}")
+else:
+    print("Liczba studentów musi być większa od zera.")
