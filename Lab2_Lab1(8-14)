@@ -1,0 +1,340 @@
+#zadanie 8
+
+wiek = int(input("Podaj swój wiek: "))
+if 14 > wiek > 18:
+   print("Jestes nastolatek")        
+elif wiek < 14:
+    print("Jestes dzieckiem") 
+elif wiek >= 18:
+    print("Jestes dorosly")
+else:
+    print("Prosze podac swoj wiek, np. 12,19,40")
+
+#zadanie 9
+
+wiek = int(input("Podaj swój wiek: "))
+if wiek >= 18:
+    student = input("Czy jesteś studentem? (tak/nie): ")
+else:
+    student = "nie"        
+if wiek < 4:
+    cena = 0
+elif 4 <= wiek < 18:
+    cena = 10
+elif wiek >= 18 and student == "tak":
+    cena = 20 * 0.75
+elif wiek >= 18:
+    cena = 20 
+cena = print(f"Cena twojego biletu to: {cena} zł")
+
+
+#zadanie 10
+
+x=int(input("podaj 1 liczbe"))y=int(input("podaj 2 liczbe"))
+z=int(input("podaj 3 liczbe"))
+if x > y:    x, y = y, x
+if y > z:    y, z = z, y
+if x > y:    x, y = y, x
+
+print(x, y, z)
+
+#zadanie 11
+
+print("Rownanie kwadratowe ma postac: ax^2 + bx + c = 0")
+a = float(input("Podaj wspolczynnik a (a ≠ 0): "))
+if a == 0:
+    print("Wspolczynnik a nie może być równy 0 w rownaniu kwadratowym.")
+else:
+    b = float(input("Podaj wspolczynnik b: "))
+    c = float(input("Podaj wspolczynnik c: "))
+    delta = b**2 - 4*a*c
+    print(f"Delta wynosi: {delta}")
+
+    if delta > 0:
+        x1 = (-b - pierw.delty) / (2 * a)
+        x2 = (-b + pierw.delty) / (2 * a)
+        print(f"Rownanie ma dwa pierwiastki rzeczywiste: x1 = {x1}, x2 = {x2}")
+    elif delta == 0:
+        x0 = -b / (2 * a)
+        print(f"Rownanie ma jeden pierwiastek rzeczywisty: x0 = {x0}")
+    else:
+        print("Rownanie nie ma pierwiastkow rzeczywistych.")
+
+#zadanie 13
+
+#robilem to kiedys, dlatego jest po angielsku
+
+what = input ("Which one? (+, -): ")
+
+a = float( input( "First number please: "))
+b = float( input( "Second number please: "))
+
+if what == "+":
+        c = a + b
+        print("answer: " + str(c))
+
+elif what == "-":
+        c = a - b
+        print("answer: " + str(c))
+
+else:
+        print("unknown symbol :(")
+
+#zadanie 14
+
+
+excel = (".xls", ".xlsx", ".xlsm")
+file = input("Podaj nazwę pliku: ")
+
+if file.endswith(excel):
+    print(f"{file} to plik arkusza Excel.")
+else:
+    print(f"{file} nie jest plikiem arkusza Excel.")
+
+
+
+#Zadanie 15
+
+a = float(input("Podaj pierwszą liczbę: "))
+b = float(input("Podaj drugą liczbę: "))
+
+if a == 0:
+        if b == 0:
+                print("Równanie ma nieskończenie wiele rozwiązań.")
+        else:
+                print("Równanie nie ma rozwiązania.")
+else:
+        x = -b / a
+        print(f"Rozwiązanie równania to: x = {x}")
+
+#Zadanie 16
+
+import math
+
+
+a = int(input("Podaj długosc pierwszego boku: "))
+b = int(input("Podaj długosc drugiego boku: "))
+c = int(input("Podaj długosc trzeciego boku: "))
+
+obw = 2 * a + 2 * b + 2 * c
+
+print(f"Oto jest obwód prostokątą: {obw}")
+
+p = (a + b + c)/2
+pole = sqrt = math.sqrt(p*(p - a)*(p - b)*(p - c))
+
+
+#nie wiem czy potrzebna jest liczba całkowita, dlatego nic nie zmienialem poniżej
+print("Oto jest pole prostokątą: " + str(pole))
+
+
+
+#Zadanie 17
+
+letter = input("Wprowadź jedną literę: ")
+
+if len(letter) == 1 and letter.isalpha():
+        asci = ord(letter)
+if 65 <= asci <= 90:
+                print("Wprowadzana litera jest dużą literą")
+elif 97 <= asci <= 122:
+                print("Wprowadzona litera jest małą literą")
+else:
+        print("Wprowadzono błąd")
+
+#Zadanie 19
+
+def con(char):
+        asci = ord(char)
+        if 'A' <= char <= 'Z':
+                return chr(asci + 32)
+        elif 'a' <= char <= 'z':
+                return chr(asci - 32)
+        else:
+                return char
+literka = input("Proszę o podanie litery: ")
+if len(literka) == 1:
+        print("Proszę bardzo:", con(literka))
+else:
+        print("Wprowadź tylko jedną literę.")
+
+ #Zadanie 20
+
+ def obl_wynik(gol, bonus):
+        wynik = gol * 10
+        if gol > 5:
+                wynik += 5
+        elif gol > 10:
+                wynik += 10
+        wynik += bonus
+
+        return wynik
+try:
+        gol = int(input("Wprowadź liczbę bramek zdobytych przez drużynę: "))
+        bonus = int(input("Wprowadź liczbę bonusów zdobytych przez drużynę: "))
+
+        wyn_druzyny = obl_wynik(gol, bonus)
+print("Łączny wynik drużyny:", wyn_druzyny)
+
+except ValueError:
+        print("Proszę wprowadzić poprawne liczby całkowite.")
+
+
+
+#Lab 2
+
+
+
+
+#zadanie 1
+
+for i in range (1,101):    
+    print(i)
+for i in range(100, -1,  -1):    
+    print(i)
+for i in range(7, 78, 7):    
+    print(i)
+for i in range(20, -2, -2):
+    print(i)
+
+#zadanie 2
+
+a)
+liczbaG =int(input("ile gwiazdek: "))
+print(liczbaG)
+for j in range(liczbaG):
+    for i in range(liczbaG):
+        print("*", end = " ")
+    print("")
+liczbaG =int(input("ile gwiazdek: "))
+b)
+liczbaG =int(input("ile gwiazdek: "))
+for j in range(liczbaG):
+    for i in range(j + 1 ):
+        print("* ", end = " ")
+    print("")
+c)
+liczbaG =int(input("ile gwiazdek: "))
+for j in range(liczbaG):
+    print((liczbaG - 1 - j) * " ", end = "")
+    for i in range(j + 1 ):
+        print("*", end = " ")
+    print("")
+
+#zadanie 3
+
+n = int(input("Podaj liczbe naturalna n (ilosc elementow ciagu): "))
+if n <= 0:
+    print("Liczba n musi byc liczba naturalna wieksza od zera.")
+else:
+    a = float(input("Podaj pierwszy wyraz ciagu (a): "))
+    r = float(input("Podaj roznice ciagu (r): "))
+
+    print(f"{n} elementów ciągu arytmetycznego:")
+    for i in range(n):
+        element = a + i * r
+        print(f"a({i + 1}) = {element}")
+
+#zadanie 4
+
+n = int(input("Podaj liczbę naturalną n: "))
+if n < 0:
+    print("Silnia jest zdefiniowana tylko dla liczb naturalnych.")
+else:
+    silnia = 1
+    for i in range(1, n + 1):
+        silnia *= i
+
+    print(f"Silnia liczby {n} wynosi {silnia}.")
+
+#zadanie 6
+
+tresc = "Python jest super"
+print(tresc[0])     
+print(tresc[-1])      
+print(tresc[::2])    
+print(tresc[1::3])   
+print(tresc[10::-1])  
+print(tresc[::-1])
+print(tresc[6], tresc[9], tresc[12], tresc[1])
+
+#zadanie 7
+
+imie = input("Podaj swoje imie: ")
+print("Witaj", imie)
+
+wiek = int(input("Podaj swoj wiek: "))
+print(f"Twoj wiek to: {wiek}")
+
+imie = input("Podaj swoje imię: ")
+nazwisko = input("Podaj swoje nazwisko: ")
+print("inicjaly: " + imie[0] + "." + nazwisko[0] + ".")
+
+lancuch = input("Podaj lancuch: ")
+print(lancuch * 5)
+
+lancuch1 = input("Podaj pierwszy łańcuch: ")
+lancuch2 = input("Podaj drugi łańcuch: ")
+lancuch_p = lancuch1 + lancuch2
+print("Połączony łańcuch:", lancuch_p)
+
+
+lancuch_1 = input("Podaj pierwszy łańcuch: ")
+lancuch_2 = input("Podaj drugi łańcuch: ")
+
+polowa1 = lancuch_1[:len(lancuch_1) // 2]
+polowa2 = lancuch_2[len(lancuch_2) // 2:]
+
+lancuch_p2 = polowa1 + polowa2
+print("Połączona połowa:", lancuch_p2
+
+#zadanie 8
+
+# x =<-4, 4>
+x=-4
+while x <= 4:
+    y = 2 * x * x − 5 * x − 8
+    print(f"dla argumentow x = {x} wartosc funkcji wynosi {y}")
+    x+=0.5
+else:    print("else: dzialanie petli sie zakonczylo")
+
+#zadanie 9
+
+while True:
+    a = int(input("podaj liczbe calkowita: "))
+    print(a)
+    if a < 0:
+        break
+
+
+#zadanie 10
+
+a = int(input("Podaj pierwsza liczbe calkowita: "))
+b = int(input("Podaj druga liczbe calkowita: "))
+
+if a > b:
+    a, b = b, a 
+    for i in range(a, b + 1):
+        print(i)
+elif a < b:
+    b, a = a, b
+    for i in range(b, a + 1):
+        print(i)
+
+#zadanie 11
+
+a = int(input("Podaj pierwsza liczbe calkowita: "))
+b = int(input("Podaj druga liczbe calkowita: "))
+
+if a > b:
+    a, b = b, a 
+    for i in range(a, b + 1):
+        if i % 2 != 0:
+            continue
+        print(i)
+elif a < b:
+    b, a = a, b
+    for i in range(b, a + 1):
+        if i % 2 != 0:
+            continue
+        print(i) 
