@@ -1,0 +1,341 @@
+# Zadania 1
+
+imiona=["Vika", "Nadia", "Iryna", "Olena"]
+
+#a
+
+imiona.sort()
+sorted_list = imiona.copy()  # Kopia posortowanej listy
+print("Lista posortowana alfabetycznie:", sorted_list)
+
+
+#b
+
+
+imiona.append("Anastasia")
+imiona.append("Daria")
+last_person = imiona.pop()
+print("Lista po dodaniu dwóch osób i usunięciu ostatniej:", imiona)
+print("Ostatnia usunięta osoba:", last_person)
+
+
+#c
+
+imiona.insert(2, "Kateryna")
+print("Lista po dodaniu osoby na pozycji 3:", imiona)
+
+
+#d
+
+imiona.reverse()
+doubled_list = imiona * 2
+print("Lista po odwróceniu i zdublowaniu:", doubled_list)
+
+# Zadania 2
+
+import string
+
+zdanie = input("Wprowadź zdanie: ")
+
+# a
+
+litery = sorted(set(filter(str.isalpha, zdanie.lower())))
+alfabet = set(string.ascii_lowercase)
+brakujace_litery = alfabet - set(litery)
+
+print("Wszystkie występujące litery w kolejności alfabetycznej:", ''.join(litery))
+print("Brakujące litery alfabetu:", ''.join(sorted(brakujace_litery)))
+
+
+# b
+
+pozostale_znaki = ''.join([zdanie[i] for i in range(len(zdanie)) if i % 2 == 0])
+print("Zdanie po usunięciu znaków o nieparzystych indeksach:", pozostale_znaki)
+
+
+# c
+
+wyrazy = zdanie.split()
+wyrazy_z_wielka_litera = [s.capitalize()[:-1] + s[-1].upper() if len(s) > 1 else s.upper() for s in wyrazy]
+print("Wyrazy zaczynające się i kończące wielką literą:", ' '.join(wyrazy_z_wielka_litera))
+
+
+# d
+
+najdluzsze_slowo = max(wyrazy, key=len)
+print("Najdłuższe słowo:", najdluzsze_slowo, "o długości:", len(najdluzsze_slowo))
+
+
+# e
+
+znaki = list(zdanie)
+wystapienia = {}
+for i, znak in enumerate(znaki):
+    if znak in wystapienia:
+        znaki[i] = '@'
+    else:
+        wystapienia[znak] = True
+zmienione_zdanie = ''.join(znaki)
+print("Zdanie po zamianie powtarzających się znaków na @:", zmienione_zdanie)
+
+
+# Zadania 3
+
+ciag = input("Wprowadź ciąg znaków: ")
+ciag_normalized = ''.join(filter(str.isalnum, ciag.lower()))
+
+if ciag_normalized == ciag_normalized[::-1]:
+    print("Ciąg jest palindromem.")
+else:
+    print("Ciąg nie jest palindromem.")
+
+# Zadania 4
+
+import random
+import string
+
+n = int(input("Podaj liczbę elementów listy (n): "))
+x = int(input("Podaj maksymalną długość ciągów znakowych (x): "))
+
+lista = [''.join(random.choices(string.ascii_lowercase, k=random.randint(1, x))) for _ in range(n)]
+krotka = tuple(lista)
+
+print("Wygenerowana lista:", lista)
+print("Przekonwertowana na krotkę:", krotka)
+
+# a
+sumaZ = sum(len(k) for k in krotka)
+
+# b
+sumaK = sum(k.count("k") for k in krotka)
+
+# c
+sumaKT = sum(k.count("kt") for k in krotka)
+
+# d
+s = int(input("Podaj minimalną długość słowa (s): "))
+sumaW = sum(1 for k in krotka if len(k) > s)
+
+# Wyświetlenie wyników
+print("a) Ilość wszystkich znaków w liście:", sumaZ)
+print("b) Ilość liter 'k':", sumaK)
+print("c) Ilość wystąpień ciągu 'kt':", sumaKT)
+print("d) Ilość ciągów dłuższych niż", s, "znaków:", sumaW)
+
+
+# Zadania 5
+
+listaZakupów={"piwo":4, "czipsy":9, "kitkat":4, "redbull":7}
+
+print("Lista zakupów:", listaZakupów)
+print("Produkty:", listaZakupów.keys())
+print("Wartości:", listaZakupów.values())
+print("Elementy (produkt i kwota):", listaZakupów.items())
+
+# Wyświetlenie każdego produktu z jego ceną
+print("\nSzczegóły zakupów:")
+for el in listaZakupów:
+    #print(el)
+    print(f"Na rachunku znajduje się {el} za {listaZakupów[el]} zł ")
+    #print(f"Na rachunku znajduje się {el.keys()} za {listaZakupów[el]} zł ")
+
+# Alternatywna metoda z użyciem items()
+print("\nSzczegóły zakupów (z items()):")
+for produkt, kwota in listaZakupów.items():
+    print(f"Na rachunku znajduje się {produkt} za {kwota} zł")
+
+# Podsumowanie wydatków
+suma_wydatków = sum(listaZakupów.values())
+print(f"\nŁączna kwota za zakupy wynosi: {suma_wydatków} zł")
+
+# Dodatkowo: możliwość dodania nowego produktu
+nowy_produkt = input("\nDodaj nowy produkt (nazwa): ")
+nowa_kwota = int(input(f"Podaj cenę dla {nowy_produkt}: "))
+listaZakupów[nowy_produkt] = nowa_kwota
+
+print("\nZaktualizowana lista zakupów:")
+for produkt, kwota in listaZakupów.items():
+    print(f"Na rachunku znajduje się {produkt} za {kwota} zł")
+
+# Aktualizacja podsumowania wydatków
+suma_wydatków = sum(listaZakupów.values())
+print(f"\nNowa łączna kwota za zakupy wynosi: {suma_wydatków} zł")
+
+# Zadania 6
+
+rachunki = {
+    "styczeń": 120,
+    "luty": 110,
+    "marzec": 150,
+    "kwiecień": 130,
+    "maj": 140
+}
+
+# a
+maksymalny_rachunek = max(rachunki.values())  # Maksymalna wartość
+minimalny_rachunek = min(rachunki.values())  # Minimalna wartość
+suma_rachunków = sum(rachunki.values())  # Suma wartości
+średni_rachunek = suma_rachunków / len(rachunki)  # Średnia wartość
+
+# Wyświetlanie wyników
+print(f"Maksymalny rachunek: {maksymalny_rachunek} zł")
+print(f"Minimalny rachunek: {minimalny_rachunek} zł")
+print(f"Suma rachunków: {suma_rachunków} zł")
+print(f"Średni rachunek: {średni_rachunek:.2f} zł")
+
+
+# b
+ostatni_rachunek = rachunki["maj"]
+
+if ostatni_rachunek > średni_rachunek:
+    print("Trzeba zacisnąć pasa")
+else:
+    print("Wszystko okay")
+
+
+# Zadania 7
+
+import random
+
+# Tworzymy zbiory X i Y o losowej liczbie elementów (z przedziału <3, 7>)
+a = random.randint(3, 7)
+b = random.randint(3, 7)
+
+# Tworzymy zbiory X i Y, wypełniając je losowymi liczbami z przedziału <0, 10>
+X = set(random.randint(0, 10) for _ in range(a))
+Y = set(random.randint(0, 10) for _ in range(b))
+
+# Wyświetlenie zbiorów
+print(f"Zbiór X: {X}")
+print(f"Zbiór Y: {Y}")
+
+# a) Czy zbiór X zawiera liczbę 5?
+print(f"a) Zbiór X zawiera liczbę 5: {5 in X}")
+
+# b) Czy zbiór X jest podzbiorem zbioru Y?
+print(f"b) Zbiór X jest podzbiorem zbioru Y: {X.issubset(Y)}")
+
+# c) Czy zbiór Y jest podzbiorem zbioru X?
+print(f"c) Zbiór Y jest podzbiorem zbioru X: {Y.issubset(X)}")
+
+# d) Suma zbiorów X i Y
+suma = X.union(Y)
+print(f"d) Suma zbiorów X i Y: {suma}")
+
+# e) Różnica zbiorów X i Y
+roznica_X_Y = X.difference(Y)
+print(f"e) Różnica zbiorów X i Y: {roznica_X_Y}")
+
+# f) Różnica zbiorów Y i X
+roznica_Y_X = Y.difference(X)
+print(f"f) Różnica zbiorów Y i X: {roznica_Y_X}")
+
+# g) Iloczyn zbiorów X i Y
+iloczyn = X.intersection(Y)
+print(f"g) Iloczyn zbiorów X i Y: {iloczyn}")
+
+# h) Wartość najwyższego elementu w obu zbiorach
+max_element_X = max(X) if X else None
+max_element_Y = max(Y) if Y else None
+print(f"h) Najwyższy element w zbiorze X: {max_element_X}")
+print(f"h) Najwyższy element w zbiorze Y: {max_element_Y}")
+
+# i) Usuń pierwszy element ze zbioru X i dołącz go do zbioru Y
+# Zbiory w Pythonie nie mają "pierwszego" elementu, ale możemy usunąć losowy element.
+if X:
+    pierwszy_element_X = X.pop()  # Usuwamy losowy element z X
+    Y.add(pierwszy_element_X)  # Dodajemy go do Y
+    print(f"i) Po przeniesieniu elementu z X do Y:")
+    print(f"Zbiór X: {X}")
+    print(f"Zbiór Y: {Y}")
+
+# j) Przekopiuj wszystkie elementy zbioru X do zbioru Y
+Y.update(X)
+print(f"j) Po skopiowaniu wszystkich elementów ze zbioru X do Y:")
+print(f"Zbiór X: {X}")
+print(f"Zbiór Y: {Y}")
+
+# k) Wyczyść oba zbiory
+X.clear()
+Y.clear()
+print(f"k) Po wyczyszczeniu zbiorów:")
+print(f"Zbiór X: {X}")
+print(f"Zbiór Y: {Y}")
+
+# Zadania 8
+
+import random
+
+# a
+user_input = input("Podaj pięć cyfr rozdzielonych przecinkiem: ")
+
+# b
+numbers = user_input.split(',')
+
+if len(numbers) != 5:
+    print("Liczba wprowadzonych cyfr nie wynosi 5. Program zostaje przerwany.")
+else:
+    # Konwertujemy elementy na liczby całkowite
+    numbers = [int(num) for num in numbers]
+
+    # c
+    numbers_set = set(numbers)
+
+    random_number = random.choice(list(numbers_set))
+    print(f"Wylosowany element: {random_number}")
+
+    # d
+    if random_number == min(numbers):
+        print(f"Wylosowana liczba {random_number} jest najmniejsza.")
+    elif random_number == max(numbers):
+        print(f"Wylosowana liczba {random_number} jest największa.")
+
+
+# Zadania 9
+
+# Wymiary pola gry
+width = 6  # liczba kolumn (0-5)
+height = 5  # liczba wierszy (0-4)
+
+# Przeciwnicy (x)
+enemies = [(0, 1), (2, 3), (2, 4), (3, 4)]
+
+# Monety (*)
+coins = [(1, 1), (2, 0), (3, 3), (5, 3)]
+
+# Rzeka (=) na wysokości y = 2
+river_y = 2
+
+# Tworzymy planszę
+for y in range(height):
+    row = ""
+    for x in range(width):
+        # Sprawdzamy, co umieścić w danym punkcie
+        if (x, y) in enemies:
+            row += "x"  # Przeciwnik
+        elif (x, y) in coins:
+            row += "*"  # Moneta
+        elif y == river_y:
+            row += "="  # Rzeka
+        else:
+            row += "."  # Trawa
+    print(row)
+
+
+# Zadania 11
+
+import string
+
+# Utwórz listę wszystkich liter alfabetu
+alphabet = list(string.ascii_lowercase)
+
+# Poproś użytkownika o wartość n
+n = int(input("Podaj wartość n (co n-ty element, który podzieli listę na podlisty): "))
+
+# Podziel listę na podlisty
+result = [alphabet[i:i + n] for i in range(0, len(alphabet), n)]
+
+# Wyświetl wynik
+print(result)
+
+
