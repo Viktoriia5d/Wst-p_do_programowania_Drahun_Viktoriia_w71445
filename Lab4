@@ -1,0 +1,219 @@
+# Zadania 1
+
+import math
+def pole_kola(r):
+    pole = math.pi * r**2
+    print(f"Pole kola o promieniu {r} wynosi: {pole}")
+
+pole_kola(5)
+
+
+# Zadania 2
+
+def poleTrapezu(a,b,h):
+    pole = (a + b) * h / 2
+    return pole
+
+a = float(input("Podaj a:"))
+b = float(input("Podaj b:"))
+h = float(input("Podaj h:"))
+trapez = poleTrapezu(a, b, h)
+print(trapez)
+
+
+# Zadania 3
+
+def czyDod(x):
+    if x>0:
+        print("Liczba jest dodatnia")
+    elif x==0:
+        print("Liczba jest równa zeru")
+    else:
+        print("Liczba jest ujemna")
+
+c=float(input("Podaj liczbe: "))
+czyDod(c)
+
+
+# Zadania 4
+
+def func(masa, wzrost):
+    bmi = masa / (wzrost * wzrost)
+    print("Twoje BMI to ", bmi)
+    if bmi < 16: return "wygłodzenie"
+    elif bmi < 17: return "wychudzenie"
+    elif bmi < 18.5: return "niedowaga"
+    elif bmi < 25: return "pożądana masa ciała"
+    elif bmi < 30: return "nadwaga"
+    elif bmi < 35: return "otyłość I stopnia"
+    elif bmi < 40: return "otyłość II stopnia"
+    else: return "otyłość III stopnia"
+
+masa = float(input("Podaj masę ciała: "))
+wzrost = float(input("Podaj wzrost ciała: "))
+wzrost /= 100
+
+print(func(masa, wzrost))
+
+
+# Zadania 5
+
+def srednia(lista_liczb):
+    if lista_liczb:
+        return sum(lista_liczb) / len(lista_liczb)
+    else:
+        return "Lista jest pusta"
+
+print(srednia([1, 2, 3, 4]))
+
+
+# Zadania 6
+
+def pokaz_dane(imie, wiek=20):
+    print(f"Imię: {imie}, Wiek: {wiek}")
+
+print(pokaz_dane.__doc__)
+pokaz_dane("Anna")
+
+
+# Zadania 7
+
+import math
+def pole_trojkata(a,b,c):
+    if a>b+c or b>c+a or c>a+b:
+        print("Nie istnieje trójkąt o podanych bokach. ")
+    elif a<0 or b<0 or c<0:
+        print("Nie istnieje trójkąt o podanych bokach. ")
+    else:
+        p = (a+b+c)/2
+        pole = math.sqrt(p*(p-a)*(p-b)*(p-c))
+        print(f"Trójkąt o podanych bokach ma pole równe: {pole}")
+
+
+a=float(input("Podaj długość pierwszego boku: "))
+b=float(input("Podaj długość drugiego boku: "))
+c=float(input("Podaj długość trzeciego boku: "))
+
+pole_trojkata(a,b,c)
+
+
+# Zadania 8 
+
+def fun(a, n):
+    if n==0:
+        return 1
+    elif n < 0:
+        return 1 / fun(a, -n)
+    elif (n==1):
+        return a
+    else:
+        return a*fun(a, n-1)
+
+print(fun(2, 3))  #8
+print(fun(5, 0))  #1
+print(fun(2, -3))   #0.125
+
+
+# Zadania 9
+
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(0))  # 0
+print(fibonacci(1))  # 1
+print(fibonacci(5))  # 5 (1, 1, 2, 3, 5)
+print(fibonacci(10)) # 55
+
+
+# Zadania 10
+
+def wieza_hanoi(n, start, pomocniczy, cel):
+    if n == 1:
+        print(f"Przenieś krążek z {start} na {cel}")
+    else:
+        wieza_hanoi(n - 1, start, cel, pomocniczy)
+        print(f"Przenieś krążek z {start} na {cel}")
+        wieza_hanoi(n - 1, pomocniczy, start, cel)
+
+wieza_hanoi(3, 'A', 'B', 'C')
+
+
+# Zadania 11
+
+def odwracanie_stringu(s):
+    return s[::-1]
+
+print(odwracanie_stringu("programowanie"))
+
+
+# Zadania 12
+
+def okresl_plec(imie):
+    if imie[-1].lower() == 'a':
+        return "kobieta"
+    else:
+        return "mężczyzna"
+
+imiona = ["Anna", "Piotr", "Maria", "Jan", "Katarzyna"]
+slownik = {imie: okresl_plec(imie) for imie in imiona}
+print(slownik)
+
+
+
+# Zadania 13
+
+def wspolne_elementy(seq1, seq2):
+    return list(set(seq1) & set(seq2))
+
+print(wspolne_elementy([1, 2, 3], [2, 3, 4]))
+
+
+
+
+# Zadania 14
+
+def nwd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+print(nwd(48, 18))
+
+
+
+# Zadania 15
+
+def czy_palindrom(slowo):
+    return slowo == slowo[::-1]
+
+print(czy_palindrom("kajak"))
+
+
+
+# Zadania 16
+
+def czy_anagram(slowo1, slowo2):
+    return sorted(slowo1) == sorted(slowo2)
+
+print(czy_anagram("tok", "kot"))
+
+
+
+# Zadania 17
+
+def wypisz_parametry(*args):
+    return args
+
+def maksymalna_wartosc(*args):
+    if args:
+        return max(args)
+    else:
+        return "Brak parametrów"
+
+print(wypisz_parametry(1, 2, 3, 4))
+print(maksymalna_wartosc(1, 2, 3, 4))
