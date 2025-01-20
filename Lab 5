@@ -1,0 +1,404 @@
+# zadania 1
+
+
+#a
+import random
+
+liczba_osob = 17  # Liczba osób w grupie
+szczesliwy_numerek = random.randint(1, liczba_osob)
+print(f"Szczęśliwy numerek: {szczesliwy_numerek}")
+
+#b
+
+roczniki = [2004, 2006, 2007]
+szczesliwy_rocznik = random.choice(roczniki)
+print(f"Szczęśliwy rocznik: {szczesliwy_rocznik}")
+
+#c
+
+liczby_totolotka = list(range(1, 50))  # Liczby od 1 do 49
+wylosowane_liczby = random.sample(liczby_totolotka, 6)
+print(f"Wylosowane liczby w totolotku: {sorted(wylosowane_liczby)}")
+
+
+# Zadania 2
+
+import math
+
+# a
+a = math.sqrt(81)
+print(f"a) √81 = {a}")
+
+# b
+b = 8**10
+print(f"b) 8^10 = {b}")
+
+# c
+c = math.sqrt(2) + math.sqrt(3) + math.sqrt(6)
+print(f"c) √2 + √3 + √6 = {c}")
+
+# d
+d = (-5)**0.5
+print(f"d) √-5 = {d}")
+
+# e
+e = 125**(1/3) # lub math.pow(125, 1/3)
+print(f"e) ∛125 = {e}")
+
+
+# Zadania 3
+
+import time
+
+def sekundnik(czas):
+    for sekunda in range(czas, 0, -1):
+        print(f"Pozostało: {sekunda} sekund")
+        time.sleep(1)
+    print("Czas upłynął!")
+
+# Przykład: użytkownik wprowadza czas odliczania
+czas_odliczania = int(input("Podaj czas w sekundach: "))
+sekundnik(czas_odliczania)
+
+
+# Zadania 4
+
+import datetime
+
+def dni_od_laboratoriow(data_ostatnich_laboratoriow):
+    dzisiaj = datetime.date.today()
+    dni_uplynelo = (dzisiaj - data_ostatnich_laboratoriow).days
+    return dni_uplynelo
+
+def dni_do_kolokwium(data_kolokwium):
+    dzisiaj = datetime.date.today()
+    dni_pozostalo = (data_kolokwium - dzisiaj).days
+    return dni_pozostalo
+
+# Przykładowe daty
+ostatnie_laboratoria = datetime.date(2025, 1, 16)  # Data ostatnich laboratoriów
+kolokwium = datetime.date(2025, 1, 23)  # Data kolokwium
+
+# Obliczenia
+dni_uplynelo = dni_od_laboratoriow(ostatnie_laboratoria)
+dni_pozostalo = dni_do_kolokwium(kolokwium)
+
+# Wyświetlanie wyników
+print(f"Od ostatnich laboratoriów upłynęło: {dni_uplynelo} dni.")
+print(f"Do kolokwium zostało: {dni_pozostalo} dni.")
+
+
+
+# Zadania 5
+
+import keyword
+
+words = ["for", "print", "break", "done", "bad"]
+
+for word in words:
+    if keyword.iskeyword(word):
+        print(f"'{word}' jest słowem kluczowym.")
+    else:
+        print(f"'{word}' nie jest słowem kluczowym.")
+
+
+# Zadania 6
+
+import math
+import keyword
+import collections
+
+
+print("Funkcje modułu 'math':", dir(math))
+print("\nFunkcje modułu 'keyword':", dir(keyword))
+print("\nFunkcje modułu 'collections':", dir(collections))
+
+
+
+
+# Zadania 7 (+ geometria)
+
+import geometria
+
+promien = 16
+
+obwod = geometria.obwod_kola(promien)
+pole = geometria.pole_kola(promien)
+
+print(f"Obwód koła o promieniu {promien}: {obwod}")
+print(f"Pole koła o promieniu {promien}: {pole}")
+
+
+# do zadania 7
+
+PI = 3.14159
+
+def obwod_kola(promien):
+    return 2 * PI * promien
+
+def pole_kola(promien):
+    return PI * promien**2
+
+
+
+
+# Zadania 8 (+ temperatura)
+
+import temperatura
+
+# a
+temp_f = temperatura.c_to_f(21)
+
+# b
+temp_c = temperatura.f_to_c(89)
+
+# c
+temp_k = temperatura.c_to_k(35)
+
+
+print(f"21°C to {temp_f}°F")
+print(f"89°F to {temp_c:.2f}°C")
+print(f"35°C to {temp_k}K")
+
+
+
+# do zadania 8
+
+def c_to_f(celsius):
+    return celsius * 9 / 5 + 32
+
+def f_to_c(fahrenheit):
+    return (fahrenheit - 32) * 5 / 9
+
+def c_to_k(celsius):
+    return celsius + 273.15
+
+
+
+# Zadania 9 (+ f_mat)
+
+import f_mat
+
+
+kwadrat_10 = f_mat.kwadrat(10)
+szescian_3 = f_mat.szescian(3)
+suma_10_5 = f_mat.dodaj(10, 5)
+
+print(f"Kwadrat liczby 10: {kwadrat_10}")
+print(f"Sześcian liczby 3: {szescian_3}")
+print(f"Suma liczb 10 i 5: {suma_10_5}")
+
+
+from f_mat import kwadrat, szescian, dodaj
+
+
+kwadrat_10_direct = kwadrat(10)
+szescian_3_direct = szescian(3)
+suma_10_5_direct = dodaj(10, 5)
+
+print(f"(Import wybranych funkcji) Kwadrat liczby 10: {kwadrat_10_direct}")
+print(f"(Import wybranych funkcji) Sześcian liczby 3: {szescian_3_direct}")
+print(f"(Import wybranych funkcji) Suma liczb 10 i 5: {suma_10_5_direct}")
+
+
+
+
+
+# do zadania 9
+
+def kwadrat(x):
+    return x**2
+
+def szescian(x):
+    return x**3
+
+def dodaj(a, b):
+    return a + b
+
+
+
+
+
+# Zadania 10
+
+import random
+import math
+
+def srednia_geometryczna(krotka):
+    iloczyn = 1
+    for liczba in krotka:
+        iloczyn *= liczba
+    return iloczyn**(1/len(krotka))
+
+
+dolny_zakres = int(input("Podaj dolny zakres losowania: "))
+gorny_zakres = int(input("Podaj górny zakres losowania: "))
+
+
+krotka = tuple(random.randint(dolny_zakres, gorny_zakres) for _ in range(10))
+print(f"Wygenerowana krotka: {krotka}")
+
+
+srednia_geo = srednia_geometryczna(krotka)
+print(f"Średnia geometryczna krotki: {srednia_geo}")
+
+
+
+
+
+
+
+
+# Zadania 11
+
+import random
+
+def start_game():
+    print("Witaj w grze w zgadywanie liczby!")
+
+    while True:
+        try:
+            lower_bound = int(input("Podaj dolny zakres (liczba całkowita): "))
+            upper_bound = int(input("Podaj górny zakres (liczba całkowita): "))
+            if lower_bound >= upper_bound:
+                print("Dolny zakres musi być mniejszy niż górny. Spróbuj ponownie.")
+                continue
+            break
+        except ValueError:
+            print("Proszę podać poprawne liczby całkowite.")
+
+
+    secret_number = random.randint(lower_bound, upper_bound)
+    attempts = 3
+
+    print(f"Masz {attempts} próby, aby zgadnąć liczbę.")
+
+
+    while attempts > 0:
+        while True:
+            try:
+                guess = int(input(f"Próba {4 - attempts}: Podaj swoją liczbę: "))
+                if guess < lower_bound or guess > upper_bound:
+                    print(f"Proszę podać liczbę z zakresu od {lower_bound} do {upper_bound}.")
+                    continue
+                break
+            except ValueError:
+                print("Proszę podać poprawną liczbę całkowitą.")
+
+        # Sprawdzanie, czy zgadł
+        if guess < secret_number:
+            print("Za mało!")
+        elif guess > secret_number:
+            print("Za dużo!")
+        else:
+            print(f"Brawo! Zgadłeś liczbę {secret_number}.")
+            break
+
+        attempts -= 1
+
+
+    if attempts == 0 and guess != secret_number:
+        print(f"Niestety, nie udało się zgadnąć. Liczba to {secret_number}.")
+
+# Uruchomienie gry
+start_game()
+
+
+
+
+
+
+# Zadania 12
+
+import math
+
+
+def calculate_triangle_area():
+    while True:
+        try:
+
+            a = float(input("Podaj długość pierwszego boku (a): "))
+            b = float(input("Podaj długość drugiego boku (b): "))
+            angle = float(input("Podaj kąt między bokami (w stopniach): "))
+
+
+            if a <= 0 or b <= 0:
+                print("Boki trójkąta muszą mieć dodatnią długość. Spróbuj ponownie.")
+                continue
+            if angle <= 0 or angle >= 180:
+                print("Kąt musi być ostrokątny, czyli większy od 0 i mniejszy od 180 stopni.")
+                continue
+            break
+        except ValueError:
+            print("Proszę podać poprawne liczby.")
+
+
+    if angle >= 90:
+        print("Podany kąt nie należy do trójkąta ostrokątnego. Trójkąt musi mieć wszystkie kąty ostre.")
+        return None
+
+
+    angle_radians = math.radians(angle)
+
+
+    area = 0.5 * a * b * math.sin(angle_radians)
+
+    print(f"Pole trójkąta wynosi: {area:.2f} jednostek kwadratowych.")
+    return area
+
+
+# Wywołanie funkcji
+calculate_triangle_area()
+
+
+
+
+
+# Zadania 13
+
+import datetime
+import time
+
+
+def date_info():
+    # Wczytanie danych od użytkownika
+    while True:
+        try:
+            year = int(input("Podaj rok: "))
+            month = int(input("Podaj miesiąc: "))
+            day = int(input("Podaj dzień: "))
+
+            # Sprawdzenie poprawności daty
+            user_date = datetime.date(year, month, day)
+            break
+        except ValueError:
+            print("Nieprawidłowa data, spróbuj ponownie.")
+
+    # a) Dzień roku (względnie w roku przestępnym)
+    day_of_year = user_date.timetuple().tm_yday
+    print(f"Dzień roku: {day_of_year}")
+
+    # b) Numer tygodnia
+    week_number = user_date.isocalendar()[1]
+    print(f"Numer tygodnia: {week_number}")
+
+    # c) Data na 2 tygodnie przed i po
+    two_weeks_before = user_date - datetime.timedelta(weeks=2)
+    two_weeks_after = user_date + datetime.timedelta(weeks=2)
+    print(f"Data na 2 tygodnie przed: {two_weeks_before}")
+    print(f"Data na 2 tygodnie po: {two_weeks_after}")
+
+    # d) Data najbliższej niedzieli
+    days_until_sunday = (6 - user_date.weekday()) % 7  # 6 oznacza niedzielę
+    next_sunday = user_date + datetime.timedelta(days=days_until_sunday)
+    print(f"Najbliższa niedziela: {next_sunday}")
+
+    # e) Czas Unixowy bieżącej godziny w podanym dniu
+    # Ustawiamy czas na godzinę 00:00 danego dnia
+    user_datetime = datetime.datetime(year, month, day, 0, 0)
+    unix_timestamp = int(time.mktime(user_datetime.timetuple()))
+    print(f"Czas Unixowy (00:00): {unix_timestamp}")
+
+
+
+date_info()
